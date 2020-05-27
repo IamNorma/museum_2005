@@ -9,4 +9,10 @@ class Museum
   def add_exhibit(exhibit)
     @exhibits << exhibit
   end
+
+  def recommend_exhibits(person)
+    @exhibits.find_all do |exhibit|
+      person.interests.include?(exhibit.name)
+    end 
+  end
 end
