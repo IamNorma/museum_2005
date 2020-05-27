@@ -33,6 +33,12 @@ class Museum
         end
       end
     end
-    sorted 
+    sorted
+  end
+
+  def ticket_lottery_contestants(exhibit)
+    @patrons.find_all do |patron|
+      patron.spending_money < exhibit.cost 
+    end
   end
 end
