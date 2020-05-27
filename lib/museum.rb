@@ -22,4 +22,17 @@ class Museum
   def admit(patron)
     @patrons << patron
   end
+
+  def patrons_by_exhibit_interest
+    sorted = {}
+    @exhibits.each do |exhibit|
+      sorted[exhibit] = []
+      @patrons.each do |patron|
+        if patron.interests.include?(exhibit.name)
+          sorted[exhibit] << patron
+        end
+      end
+    end
+    sorted 
+  end
 end
